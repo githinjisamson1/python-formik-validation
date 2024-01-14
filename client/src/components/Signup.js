@@ -17,6 +17,7 @@ export const SignupForm = () => {
       });
   }, [refreshPage]);
 
+  // validationSchema
   const formSchema = yup.object().shape({
     email: yup.string().email("Invalid email").required("Must enter email"),
     name: yup.string().required("Must enter a name").max(15),
@@ -29,6 +30,7 @@ export const SignupForm = () => {
       .max(125),
   });
 
+  // pass 3 args === initialValues, validationSchema, onSubmit
   const formik = useFormik({
     initialValues: {
       name: "",
